@@ -1,10 +1,38 @@
-<div class="container">
-  <% @cocktails.each do |cocktail| %>
-    <restaurant><h2><%= link_to cocktail.name, cocktail_path(cocktail) %></h2>
-    </restaurant>
-  <% end %>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <a class="navbar-brand" href="#">
+    <img src="https://images.unsplash.com/photo-1562708294-4df93280352d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=633&q=80" />
+</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a><%= link_to 'Back', cocktails_path, class: 'btn btn-outline-primary' %></a>
+      </li>
+      <li class="nav-item">
+        <a> <%= link_to "Add one", new_cocktail_path, class: 'btn btn-outline-success' %></a>
+      </li>
+      <li class="nav-item dropdown">
+        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://avatars1.githubusercontent.com/u/71550958?s=400&u=5d9c2518ae08db91fa3742fff381ec6a364efd1d&v=4" />
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
 
-<p>
-  <%= link_to "ajouter un cocktail", new_cocktail_path %>
-</p>
+<div class="container">
+  <h1>Best Cocktails Ever</h1>
+    <div class="cards">
+<% @cocktails.each do |cocktail| %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg)">
+        <%= link_to cocktail.name, cocktail_path(cocktail) %>
+      </div>
+    <% end %>
+    </div>
+</div>
