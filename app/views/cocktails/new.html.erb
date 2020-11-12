@@ -1,0 +1,7 @@
+<h3> Add a new Cocktail! </h3>
+
+<%= simple_form_for(@cocktail) do |f| %>
+  <%= f.label :name%>
+  <%= f.text_field :name%>
+  <%= f.submit %>
+<% end %>
