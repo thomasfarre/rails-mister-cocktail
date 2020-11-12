@@ -12,7 +12,7 @@ require 'json'
   open_uri_hash = JSON.parse(open("https://www.thecocktaildb.com/api/json/v1/1/random.php").read)
   drinks_array = open_uri_hash["drinks"][0]
 
-  cocktail = Cocktail.new(name: drinks_array["strDrink"])
+  cocktail = Cocktail.new(name: drinks_array["strDrink"], image: drinks_array["strDrinkThumb"])
   ingredient1 = Ingredient.new(name: drinks_array["strIngredient1"])
   ingredient2 = Ingredient.new(name: drinks_array["strIngredient2"])
   ingredient3 = Ingredient.new(name: drinks_array["strIngredient3"])
@@ -28,7 +28,7 @@ require 'json'
   dose2.ingredient = ingredient2
   dose3.ingredient = ingredient3
 
-  dose1.save
-  dose2.save
-  dose3.save
+  dose1.save!
+  dose2.save!
+  dose3.save!
 
