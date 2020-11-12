@@ -9,7 +9,6 @@ require 'open-uri'
 require 'json'
 
 
-3.times do
   open_uri_hash = JSON.parse(open("https://www.thecocktaildb.com/api/json/v1/1/random.php").read)
   drinks_array = open_uri_hash["drinks"][0]
 
@@ -32,4 +31,4 @@ require 'json'
   dose1.save
   dose2.save
   dose3.save
-end
+
