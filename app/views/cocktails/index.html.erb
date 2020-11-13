@@ -1,34 +1,11 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="#">
-    <img src="https://images.unsplash.com/photo-1562708294-4df93280352d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=633&q=80" />
-  <h6 id="title">Toto Cocktails...</h6>
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a><%= link_to 'Back', cocktails_path, class: 'btn btn-outline-primary' %></a>
-      </li>
-      <li class="nav-item">
-        <a> <%= link_to "Add one", new_cocktail_path, class: 'btn btn-outline-success' %></a>
-      </li>
-      <!-- <li class="nav-item dropdown">
-        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://avatars1.githubusercontent.com/u/71550958?s=400&u=5d9c2518ae08db91fa3742fff381ec6a364efd1d&v=4" />
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-        </div>
-      </li> -->
-    </ul>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1563991471891-9c8b34f9cec6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);">
+  <div class="container">
+    <h1>Toto's Cocktails</h1>
+  <h6>The Best Cocktails Ever Top of The Pop</h6>
+     <a> <%= link_to "Add one", new_cocktail_path, class: 'btn btn-outline-success' %></a>
   </div>
 </div>
-
 <div class="container">
-  <h1>Best Cocktails Ever</h1>
     <div class="cards">
 <% @cocktails.each do |cocktail| %>
       <div class="card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path cocktail.photo.key %>)">
@@ -39,4 +16,5 @@
 </div>
 
 
-
+<!--
+https://images.unsplash.com/photo-1563991471891-9c8b34f9cec6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60 -->
