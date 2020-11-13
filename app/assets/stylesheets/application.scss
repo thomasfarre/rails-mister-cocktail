@@ -15,12 +15,12 @@
 
 h1 {
   text-align: center;
-  padding-top: 25px;
+  padding-top: 55px;
   color: #07031a;
   font-family: 'Trocchi', serif;
-  font-size: 45px;
+  font-size: 85px;
   font-weight: normal;
-  line-height: 48px;
+  line-height: 100px;
   margin: 0;
 }
 
@@ -52,4 +52,9 @@ a:hover {
 
 h3 {
   text-align: center;
+}
+
+.container {
+  padding: 0px;
+  margin: 0px;
 }

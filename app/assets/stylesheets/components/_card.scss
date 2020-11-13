@@ -16,7 +16,7 @@
 .card {
   background-size: cover;
   background-position: center;
-  height: 150px;
+  height: 250px;
   border-radius: 1px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   display: flex;
@@ -37,5 +37,5 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 30px;
   flex-grow: 1;
-  margin-top: 20px;
+  margin-top: 30px;
 }
