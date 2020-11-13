@@ -1,7 +1,11 @@
-<h3> Add a new Cocktail! </h3>
 
+<div class="container-new">
+<h3> Add a new Cocktail! </h3>
+<div class="form-group">
 <%= simple_form_for(@cocktail) do |f| %>
-  <%= f.label :name%>
-  <%= f.text_field :name%>
-  <%= f.submit %>
+  <%= f.input :name%>
+  <%= f.button :submit, class: "btn-primary btn-block" %>
+  <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary btn-block" %>
 <% end %>
+</div>
+</div>

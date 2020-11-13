@@ -1,7 +1,8 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <a class="navbar-brand" href="#">
     <img src="https://images.unsplash.com/photo-1562708294-4df93280352d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=633&q=80" />
-</a>
+  <h6 id="title">Toto Cocktails...</h6>
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -30,7 +31,7 @@
   <h1>Best Cocktails Ever</h1>
     <div class="cards">
 <% @cocktails.each do |cocktail| %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.image %>)">
+      <div class="card"  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cocktail.image %>)">
         <%= link_to cocktail.name, cocktail_path(cocktail) %>
       </div>
     <% end %>

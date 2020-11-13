@@ -27,7 +27,6 @@ h1 {
 body {
   background-image: url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80');
   background-repeat: no-repeat;
-  background-position: center;
   background-size: cover;
   height: 100%;
 }
@@ -42,4 +41,15 @@ a {
 a:hover {
   text-decoration: none;
   color:white;
+  opacity: 1;
+}
+
+.container-new {
+  width: 400px;
+  margin: 0 auto;
+  padding: 55px;
+}
+
+h3 {
+  text-align: center;
 }
