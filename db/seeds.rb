@@ -14,32 +14,42 @@ require 'json'
 #   end
 # end
 
+# Dose.destroy_all
+# Cocktail.destroy_all
+# Ingredient.destroy_all
 
-16.times do
+10.times do
   url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
   data = JSON.parse(open(url).read)
   drinks_data = data['drinks'][0]
-  file = URI.open(images_url.sample)
-  cocktail = Cocktail.create(name: drinks_data['strDrink'])
+
+  file = URI.open(drinks_data['strDrinkThumb'])
+
+  cocktail = Cocktail.new(name: drinks_data['strDrink'])
+
   cocktail.photo.attach(io: file, filename: 'cocktail.jpg', content_type: 'image/jpg')
-  ingredient1 = Ingredient.create(name: drinks_data['strIngredient1'])
-  ingredient2 = Ingredient.create(name: drinks_data['strIngredient2'])
-  dose1 = Dose.new(description: drinks_data['strMeasure1'])
-  dose2 = Dose.new(description: drinks_data['strMeasure2'])
-  dose1.ingredient = ingredient1
-  dose1.cocktail = cocktail
-  dose1.save!
-  next unless ingredient2.save
-  dose2.ingredient = ingredient2
-  dose2.cocktail = cocktail
-  dose2.save!
+
+  i = 1
+
+  while (drinks_data["strIngredient#{i}"] != (nil || "") && drinks_data["strMeasure#{i}"]) != (nil || "")
+
+
+    p drinks_data["strIngredient#{i}"]
+    p drinks_data["strMeasure#{i}"]
+    p "-----------------------------------"
+    ingredient = Ingredient.new(name: drinks_data["strIngredient#{i}"])
+    dose = Dose.new(description: drinks_data["strMeasure#{i}"])
+    dose.ingredient = ingredient
+    dose.cocktail = cocktail
+    dose.save
+    i += 1
+
+  end
 end
+
 puts '--------------------------------'
 puts 'create cocktails successfull'
 puts '--------------------------------'
-
-
-
 
   # open_uri_hash = JSON.parse(open("https://www.thecocktaildb.com/api/json/v1/1/random.php").read)
   # drinks_array = open_uri_hash["drinks"][0]
