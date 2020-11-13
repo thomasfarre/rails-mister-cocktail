@@ -8,27 +8,59 @@
 require 'open-uri'
 require 'json'
 
+# class AddImageToCocktails < ActiveRecord::Migration[6.0]
+#   def change
+#     add_column :cocktails, :image, :string
+#   end
+# end
 
-  open_uri_hash = JSON.parse(open("https://www.thecocktaildb.com/api/json/v1/1/random.php").read)
-  drinks_array = open_uri_hash["drinks"][0]
 
-  cocktail = Cocktail.new(name: drinks_array["strDrink"], image: drinks_array["strDrinkThumb"])
-  ingredient1 = Ingredient.new(name: drinks_array["strIngredient1"])
-  ingredient2 = Ingredient.new(name: drinks_array["strIngredient2"])
-  ingredient3 = Ingredient.new(name: drinks_array["strIngredient3"])
-  dose1 = Dose.new(description: drinks_array["strMeasure1"])
-  dose2 = Dose.new(description: drinks_array["strMeasure2"])
-  dose3 = Dose.new(description: drinks_array["strMeasure3"])
-
-  dose1.cocktail = cocktail
-  dose2.cocktail = cocktail
-  dose3.cocktail = cocktail
-
+16.times do
+  url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+  data = JSON.parse(open(url).read)
+  drinks_data = data['drinks'][0]
+  file = URI.open(images_url.sample)
+  cocktail = Cocktail.create(name: drinks_data['strDrink'])
+  cocktail.photo.attach(io: file, filename: 'cocktail.jpg', content_type: 'image/jpg')
+  ingredient1 = Ingredient.create(name: drinks_data['strIngredient1'])
+  ingredient2 = Ingredient.create(name: drinks_data['strIngredient2'])
+  dose1 = Dose.new(description: drinks_data['strMeasure1'])
+  dose2 = Dose.new(description: drinks_data['strMeasure2'])
   dose1.ingredient = ingredient1
-  dose2.ingredient = ingredient2
-  dose3.ingredient = ingredient3
-
+  dose1.cocktail = cocktail
   dose1.save!
+  next unless ingredient2.save
+  dose2.ingredient = ingredient2
+  dose2.cocktail = cocktail
   dose2.save!
-  dose3.save!
+end
+puts '--------------------------------'
+puts 'create cocktails successfull'
+puts '--------------------------------'
+
+
+
+
+  # open_uri_hash = JSON.parse(open("https://www.thecocktaildb.com/api/json/v1/1/random.php").read)
+  # drinks_array = open_uri_hash["drinks"][0]
+
+  # cocktail = Cocktail.new(name: drinks_array["strDrink"], image: drinks_array["strDrinkThumb"])
+  # ingredient1 = Ingredient.new(name: drinks_array["strIngredient1"])
+  # ingredient2 = Ingredient.new(name: drinks_array["strIngredient2"])
+  # ingredient3 = Ingredient.new(name: drinks_array["strIngredient3"])
+  # dose1 = Dose.new(description: drinks_array["strMeasure1"])
+  # dose2 = Dose.new(description: drinks_array["strMeasure2"])
+  # dose3 = Dose.new(description: drinks_array["strMeasure3"])
+
+  # dose1.cocktail = cocktail
+  # dose2.cocktail = cocktail
+  # dose3.cocktail = cocktail
+
+  # dose1.ingredient = ingredient1
+  # dose2.ingredient = ingredient2
+  # dose3.ingredient = ingredient3
+
+  # dose1.save!
+  # dose2.save!
+  # dose3.save!
 
