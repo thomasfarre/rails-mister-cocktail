@@ -18,7 +18,7 @@ require 'json'
 # Cocktail.destroy_all
 # Ingredient.destroy_all
 
-10.times do
+1.times do
   url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
   data = JSON.parse(open(url).read)
   drinks_data = data['drinks'][0]
