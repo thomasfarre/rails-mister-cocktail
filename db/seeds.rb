@@ -5,8 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-require 'open-uri'
-require 'json'
 
 # class AddImageToCocktails < ActiveRecord::Migration[6.0]
 #   def change
@@ -14,36 +12,73 @@ require 'json'
 #   end
 # end
 
-# Dose.destroy_all
-# Cocktail.destroy_all
-# Ingredient.destroy_all
+# (drinks_data["strIngredient#{i}"] != (nil || "") && drinks_data["strMeasure#{i}"]) != (nil || "")
+require 'open-uri'
+require 'json'
 
-1.times do
+puts "Destroy all..."
+
+Dose.destroy_all
+Cocktail.destroy_all
+Ingredient.destroy_all
+
+puts "Everything destroyed!"
+
+
+
+16.times do
   url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
   data = JSON.parse(open(url).read)
   drinks_data = data['drinks'][0]
 
   file = URI.open(drinks_data['strDrinkThumb'])
 
-  cocktail = Cocktail.new(name: drinks_data['strDrink'])
+  if Cocktail.where(name: drinks_data['strDrink']).exists?
 
-  cocktail.photo.attach(io: file, filename: 'cocktail.jpg', content_type: 'image/jpg')
+    cocktail = Cocktail.find_by(name: drinks_data['strDrink'])
+
+  else
+
+    cocktail = Cocktail.new(name: drinks_data['strDrink'])
+    cocktail.photo.attach(io: file, filename: 'cocktail.jpg', content_type: 'image/jpg')
+    cocktail.save
+
+  end
 
   i = 1
 
-  while (drinks_data["strIngredient#{i}"] != (nil || "") && drinks_data["strMeasure#{i}"]) != (nil || "")
+  while true
 
+    if Ingredient.where(name: drinks_data["strIngredient#{i}"]).exists?
 
-    p drinks_data["strIngredient#{i}"]
-    p drinks_data["strMeasure#{i}"]
-    p "-----------------------------------"
-    ingredient = Ingredient.new(name: drinks_data["strIngredient#{i}"])
-    dose = Dose.new(description: drinks_data["strMeasure#{i}"])
-    dose.ingredient = ingredient
-    dose.cocktail = cocktail
-    dose.save
-    i += 1
+      ingredient = Ingredient.find_by(name: drinks_data["strIngredient#{i}"])
 
+      dose = Dose.new(description: drinks_data["strMeasure#{i}"])
+
+      dose.ingredient = ingredient
+      dose.cocktail = cocktail
+
+      break unless dose.valid?
+
+      dose.save!
+      i += 1
+
+    else
+
+      ingredient = Ingredient.new(name: drinks_data["strIngredient#{i}"])
+
+      break unless ingredient.valid?
+
+      dose = Dose.new(description: drinks_data["strMeasure#{i}"])
+
+      dose.ingredient = ingredient
+      dose.cocktail = cocktail
+
+      break unless dose.valid?
+
+      dose.save!
+      i += 1
+    end
   end
 end
 

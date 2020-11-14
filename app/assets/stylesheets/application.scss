@@ -48,6 +48,7 @@ a:hover {
   width: 400px;
   margin: 0 auto;
   padding: 55px;
+  padding-top: 100px;
 }
 
 h3 {
@@ -77,10 +78,20 @@ h3 {
   padding-right: 70px;
 }
 
+.form {
+  padding-top: 20px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  background-color: white;
+}
 
-
-
-
+.form {
+  h3 {
+    font-size: 25px;
+    padding-bottom: 15px;
+  }
+}
 
 
 /* ----- Variables ----- */
@@ -120,7 +131,7 @@ img {
   padding: 2.5em 0;
   min-width: 600px;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
 /* ----- Photo Section ----- */
@@ -139,6 +150,7 @@ img {
 
 .photo-main {
   img {
+    border-radius: 15px;
     height: 100%;
     position: absolute;
     // top: 5em;
@@ -157,7 +169,7 @@ img {
   h1 {
     margin-bottom: 0.1em;
     color: $color-primary;
-    font-size: 2.5em;
+    font-size: 2.2em;
     font-weight: 900;
     padding-right: 14px;
   }
@@ -168,6 +180,18 @@ img {
   }
 }
 
+.dose-name {
+  font-size: 15px;
+}
+
+.dose-description {
+  font-size: 15px;
+}
+
+
+td {
+  padding-right: 20px;
+}
 
 
 .description {
@@ -188,25 +212,27 @@ img {
     margin-bottom: 1em;
   }
 
-  ul {
-    vertical-align: middle;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    // margin-top: 50px;
-    list-style: disc;
-    // margin-left: 1em;
-    text-decoration: none;
-  }
 
-  li {
-    padding-right: 5px;
-    display: flex;
-    justify-content: space-between;
-    text-indent: -0.6em;
-    margin-bottom: 0.5em;
-    text-decoration: none;
-  }
+  // ul {
+  //   vertical-align: middle;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: space-between;
+  //   // margin-top: 50px;
+  //   list-style: disc;
+  //   // margin-left: 1em;
+  //   text-decoration: none;
+  // }
+
+
+  // li {
+  //   padding-right: 5px;
+  //   display: flex;
+  //   justify-content: space-between;
+  //   text-indent: -0.6em;
+  //   margin-bottom: 0.5em;
+  //   text-decoration: none;
+  // }
 }
 
 .btn.btn-outline-success {
