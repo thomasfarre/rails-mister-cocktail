@@ -1,14 +1,30 @@
-<div class="container">
-<h2><%= @cocktail.name %></h2>
- <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
-
-<ul><% @cocktail.doses.each do |dose| %>
-  <li><%= dose.ingredient.name %> |
-  <%= dose.description %>
-  <%= link_to 'Delete', dose_path(dose), method: :delete, data: {confirm: 'Are you sure to delete this dose?'} %>
-  </li>
-<% end %>
-</ul>
 
 
- <%= link_to 'Add an ingredient', new_cocktail_dose_path(@cocktail) %> | <%= link_to 'Back', cocktails_path %>
+<section class="product">
+  <div class="product__photo">
+    <div class="photo-container">
+      <div class="photo-main">
+        <%= cl_image_tag @cocktail.photo.key, height: 400, width: 400, crop: :fill %>
+      </div>
+    </div>
+  </div>
+  <div class="product__info">
+    <div class="title">
+      <h1><%= @cocktail.name %></h1>
+    </div>
+    <div class="description">
+      <h3>INGREDIENTS</h3>
+      <ul><% @cocktail.doses.each do |dose| %>
+        <li>
+        <pe><%= dose.ingredient.name %></pe>
+        <pe><%= dose.description %></pe>
+        <pe><%= link_to 'x', dose_path(dose), method: :delete, data: {confirm: 'Are you sure to delete this dose?'}, class: 'btn btn-outline-dark' %></pe>
+        </li>
+
+      <% end %>
+      </ul>
+    </div>
+    <%= link_to 'Add an ingredient', new_cocktail_dose_path(@cocktail), class: 'btn btn-outline-success' %>
+  </div>
+</section>
+
