@@ -16,13 +16,13 @@
 require 'open-uri'
 require 'json'
 
-puts "Destroy all..."
+# puts "Destroy all..."
 
-Dose.destroy_all
-Cocktail.destroy_all
-Ingredient.destroy_all
+# Dose.destroy_all
+# Cocktail.destroy_all
+# Ingredient.destroy_all
 
-puts "Everything destroyed!"
+# puts "Everything destroyed!"
 
 
 
