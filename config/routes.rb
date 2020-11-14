@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/', to: redirect('/cocktails')
   resources :cocktails, only: [:index, :show, :new, :create] do
     resources :doses, only: [:new, :create]
   end

@@ -27,8 +27,8 @@ h1 {
 body {
   background-image: url('https://images.unsplash.com/photo-1495195129352-aeb325a55b65?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80');
   background-repeat: no-repeat;
-  background-size: cover;
   height: 100%;
+  background-size: cover;
 }
 
 a {
@@ -69,7 +69,13 @@ h3 {
 
 
 
-
+.product-container {
+  margin: 0 auto;
+  border: 5px;
+  padding: 55px;
+  padding-top: 170px;
+  padding-right: 70px;
+}
 
 
 
@@ -88,15 +94,11 @@ $color-highlight: #ff3f40;
 }
 
 html,
-body {
-  height: 100%;
-}
 
 body {
   display: grid;
   grid-template-rows: 1fr;
   font-family: "Raleway", sans-serif;
-  background-color: #01e37f;
 }
 
 h3 {
@@ -139,7 +141,7 @@ img {
   img {
     height: 100%;
     position: absolute;
-    top: 1em;
+    // top: 5em;
     max-width: 105%;
     filter: saturate(150%) contrast(120%) hue-rotate(10deg)
       drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.3));
@@ -149,7 +151,6 @@ img {
 
 /* ----- Informations Section ----- */
 .product__info {
-  padding: 0.8em 0;
 }
 
 .title {
@@ -171,7 +172,14 @@ img {
 
 .description {
   clear: left;
-  margin: 2em 0;
+
+  #dose-name {
+    padding: 5px;
+  }
+
+  .btn {
+    margin-bottom: 5px;
+  }
 
   h3 {
     margin-right: 30px;
@@ -185,13 +193,14 @@ img {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 50px;
+    // margin-top: 50px;
     list-style: disc;
-    margin-left: 1em;
+    // margin-left: 1em;
     text-decoration: none;
   }
 
   li {
+    padding-right: 5px;
     display: flex;
     justify-content: space-between;
     text-indent: -0.6em;
