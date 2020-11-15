@@ -35,14 +35,9 @@ a {
   text-decoration:none;
   color: #cfd3ce;
   text-align: center;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
-a:hover {
-  text-decoration: none;
-  color:white;
-  opacity: 1;
-}
 
 .container-new {
   width: 400px;
@@ -58,7 +53,7 @@ h3 {
 
 @media (min-width: 1200px) {
 .container {
-    max-width: 1740px;
+    max-width: 1300px;
 }
 }
 
