@@ -125,6 +125,7 @@ img {
   min-width: 600px;
   background-color: white;
   border-radius: 15px;
+  box-shadow: 2px -2px 31px 0px rgba(0,0,0,0.75);
 }
 
 /* ----- Photo Section ----- */
@@ -149,7 +150,7 @@ img {
     // top: 5em;
     max-width: 105%;
     filter: saturate(150%) contrast(120%) hue-rotate(10deg)
-      drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.3));
+      drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.2));
   }
 }
 
